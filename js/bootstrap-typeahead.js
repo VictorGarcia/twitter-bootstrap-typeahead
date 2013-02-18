@@ -202,7 +202,7 @@ function ($) {
       select: function () {
         var $selectedItem = this.$menu.find('.active');
         this.$element.val($selectedItem.text()).change();
-        this.options.itemSelected(JSON.parse($selectedItem.attr('data-value')));
+        $.proxy(this.options.itemSelected, this.$element, JSON.parse($selectedItem.attr('data-value')))();
         return this.hide();
       },
 
